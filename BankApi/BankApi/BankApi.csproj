@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
+    <Folder Include="ModelDTO\" />
     <Folder Include="Service\" />
     <Folder Include="Repository\" />
   </ItemGroup>

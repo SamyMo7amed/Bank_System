@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BankApi.Models
 {
@@ -14,7 +15,12 @@ namespace BankApi.Models
 
        public virtual  string ImageFrontIdCard {  get; set; }   
 
-      public virtual string ImageBackIdCard { get; set; }   
+      public virtual string ImageBackIdCard { get; set; }
+      
+
+        public virtual BankAccount BankAccount { get; set; }    
+
+        
 
     
     }

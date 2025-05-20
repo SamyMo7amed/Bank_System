@@ -1,6 +1,7 @@
 ﻿using Castle.Core.Resource;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BankApi.Models
 {
@@ -12,7 +13,9 @@ namespace BankApi.Models
 
 
     public virtual int Id { get; set; } 
-     public  virtual int CustomerId { get; set; }   
+     public  virtual int CustomerId { get; set; }
+        [ForeignKey(nameof(CustomerId))]   
+        
      public virtual Customer Customer { get; set; }
         
      public virtual string AccountNumber { get; set; }  
