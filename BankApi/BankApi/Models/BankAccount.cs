@@ -24,5 +24,7 @@ namespace BankApi.Models
     public virtual DateTime CreatedDate { get; set; } = DateTime.Now;   
 
 
+      public virtual  Stack<Transaction> Transactions { get; set; }    
+
     }
 }

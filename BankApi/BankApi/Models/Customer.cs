@@ -18,7 +18,7 @@ namespace BankApi.Models
       public virtual string ImageBackIdCard { get; set; }
       
 
-        public virtual BankAccount BankAccount { get; set; }    
+      public virtual BankAccount BankAccount { get; set; }    
 
         
 

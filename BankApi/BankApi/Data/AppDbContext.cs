@@ -14,10 +14,11 @@ namespace BankApi.Data
         {
             builder.Entity<BankAccount>().HasOne(x => x.Customer).WithOne().HasForeignKey<BankAccount>(x=>x.CustomerId).OnDelete(DeleteBehavior.Cascade);
             builder.Entity<Transaction>().HasOne(x=>x.TransactionType).WithOne().HasForeignKey<Transaction>(t=>t.TransactionTypeId).OnDelete(DeleteBehavior.Restrict);
-            builder.Entity<Transaction>().HasOne(x=>x.FromAccount).WithMany().HasForeignKey(x=>x.FromAccountId).OnDelete(DeleteBehavior.NoAction);
-            builder.Entity<Transaction>().HasOne(x => x.ToAccount).WithMany().HasForeignKey(x => x.ToAccountId).OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<Transaction>().HasOne(x=>x.FromAccount).WithMany(x=>x.Transactions).HasForeignKey(x=>x.FromAccountId).OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<Transaction>().HasOne(x => x.ToAccount).WithMany(x=>x.Transactions).HasForeignKey(x => x.ToAccountId).OnDelete(DeleteBehavior.NoAction);
             builder.Entity<BankAccount>().Property(x=>x.Balance).HasPrecision(18,2);
             builder.Entity<Transaction>().Property(x=>x.Amount).HasPrecision(18,2);
+           
         }
 
         public DbSet<AuditLogs> AuditLogs { get; set; }         
