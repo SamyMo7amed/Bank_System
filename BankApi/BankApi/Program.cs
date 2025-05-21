@@ -1,5 +1,14 @@
-var builder = WebApplication.CreateBuilder(args);
+using BankApi.Data;
+using BankApi.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddJsonFile("Secrets.json");
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration["DefaultConnection"]));
+
+
+builder.Services.AddIdentity<SystemUsers,IdentityUserRole<int>>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 // Add services to the container.
 
 builder.Services.AddControllers();
