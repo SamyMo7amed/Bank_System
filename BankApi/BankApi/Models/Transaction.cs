@@ -15,7 +15,7 @@ namespace BankApi.Models
         [ForeignKey(nameof(FromAccount))]
 
     public virtual BankAccount FromAccount { get; set; }    
-    public virtual int ToAccountId { get; set; } = 0;
+    public virtual int ToAccountId { get; set; } 
 
         [ForeignKey(nameof(ToAccount))]
      public virtual BankAccount ToAccount { get;set; }
@@ -23,7 +23,7 @@ namespace BankApi.Models
      public virtual double Amount { get; set; } 
 
 
-        public virtual int TransactionTypeId {  get; set; }
+     public virtual int TransactionTypeId {  get; set; }
         [ForeignKey(nameof(TransactionTypeId))]  
       
       public virtual TransactionType TransactionType { get; set; }

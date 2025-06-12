@@ -2,17 +2,19 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Principal;
 
 namespace BankApi.Models
 {
 
-    
+    public enum AccountType { Saving,Current,Government}
     public class BankAccount
     {
    
 
-
     public virtual int Id { get; set; } 
+    public virtual AccountType AccountType { get; set; }    
+ 
      public  virtual int CustomerId { get; set; }
         [ForeignKey(nameof(CustomerId))]   
         

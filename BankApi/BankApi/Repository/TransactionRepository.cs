@@ -2,7 +2,7 @@
 
 namespace BankApi.Repository
 {
-    public class TransactionRepository : IRepository<Transaction>
+    public class TransactionRepository : IRepository<Transaction >
     {
         public Task AddAsync(Transaction entity)
         {
